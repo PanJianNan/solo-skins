@@ -16,4 +16,4 @@
 
 **平等，自由，奔放**
 
-**Equality, Freedom, Passion**
+**Equality, Freedom, Passion 1**
