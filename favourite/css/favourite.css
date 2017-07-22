@@ -325,8 +325,7 @@ h5 {
     color: #074A7E;
 }
 .em00, .em01, .em02, .em03, .em04, .em05, .em06, .em07, .em08, .em09, .em10, .em11, .em12, .em13, .em14 {
-    background-image: url("../../../images/emotions/emotions.png");
-    background-size: 120px;
+    background-image: url("../../favourite/images/emotions/emotions-blue.png");
 }
 .error-msg {
     color: #3366CC;

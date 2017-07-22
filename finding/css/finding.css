@@ -474,8 +474,7 @@ pre code, pre tt {
 .em00, .em01, .em02, .em03, .em04, .em05, .em06, .em07, .em08, .em09, 
 .em10, .em11, .em12, .em13, .em14 {
     cursor: pointer;
-    background-image: url("../../../images/emotions/emotions.png");
-    background-size: 120px;
+    background-image: url("../images/emotions/emotions-ease.png");
     float: left;
     height: 24px;
     margin-right: 5px;
@@ -1264,7 +1263,6 @@ ul.comments {
 }
 
 @media only screen and (max-width: 500px) {
-
     .main-header {
         margin-bottom: 15px;
         height: 40vh;
@@ -1375,9 +1373,9 @@ ul.comments {
         background-color: transparent;
     }
 
-    .nav-opened .menu-button {
-        display: none;
-    }
+    /*.nav-opened .menu-button {*/
+        /*display: none;*/
+    /*}*/
 
     .post-author {
         width: 40px;

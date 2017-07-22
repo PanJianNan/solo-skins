@@ -6,6 +6,17 @@
         <meta name="keywords" content="${metaKeywords},${dynamicLabel}"/>
         <meta name="description" content="${metaDescription},${dynamicLabel}"/>
         </@head>
+
+        <#--baidu tongji-->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?8f1b0c897cbeb1f954a6867a2ab311b3";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
     </head>
     <body class="nav-closed">
         <div class="nav">

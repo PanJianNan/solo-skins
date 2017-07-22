@@ -13,6 +13,17 @@
         <#if nextArticlePermalink??>
             <link rel="next" title="${nextArticleTitle}" href="${servePath}${nextArticlePermalink}">
         </#if>
+
+        <#--baidu tongji-->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?8f1b0c897cbeb1f954a6867a2ab311b3";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
     </head>
     <body class="nav-closed">
         <div class="nav">
@@ -72,7 +83,7 @@
                         </div>
                     </footer>
                 </article>
-                <div id="externalRelevantArticles" class="fn-wrap"></div>
+                <#--<div id="externalRelevantArticles" class="fn-wrap"></div>-->
                 <@comments commentList=articleComments article=article></@comments>
             </main>
             <#if nextArticlePermalink?? || previousArticlePermalink??>
@@ -100,11 +111,11 @@
             <#include "footer.ftl">
 
             <@comment_script oId=article.oId>
-            page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
+            <#--page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
             <#if 0 != externalRelevantArticlesDisplayCount>
             page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");
-            </#if>
-             </@comment_script>    
+            </#if>-->
+             </@comment_script>
         </div>
     </body>
 </html>

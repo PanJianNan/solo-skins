@@ -1,7 +1,7 @@
 <#macro comments commentList article>
 <ul class="comments fn-wrap" id="comments">
     <#list commentList as comment>
-    <#include "common-comment.ftl"/>
+        <#include "common-comment.ftl"/>
     </#list>
 </ul>
 <#if article.commentable>
@@ -14,12 +14,12 @@
                     <input placeholder="${commentNameLabel}" type="text" class="normalInput" id="commentName"/>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     <input placeholder="${commentEmailLabel}" type="email" class="normalInput" id="commentEmail"/>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     <input placeholder="${commentURLLabel}" type="url" id="commentURL"/>
                 </td>
@@ -85,6 +85,31 @@
                             "randomArticles1Label": "${randomArticles1Label}",
                             "externalRelevantArticles1Label": "${externalRelevantArticles1Label}"
                         });
+                        var addComment = function (result, state) {
+                            var commentable = $("#commentForm").length === 0 ? false : true;
+                            var commentHTML = '<li class="fn-clear" id="' + result.oId +
+                                    '"><div class="fn-left" style="width: 10%"><img class="avatar-48" title="'
+                                    + result.userName + '" src="' + result.commentThumbnailURL + '"></div><div class="fn-left" style="width: 90%">'
+                                    + '<div class="fn-clear post-meta"><span class="fn-left">' + result.replyNameHTML;
+                            if (state !== "") {
+                                var commentOriginalCommentName = $("#" + page.currentCommentId).find(".post-meta a").first().text();
+                                commentHTML += '&nbsp;@&nbsp;<a href="${servePath}' + result.commentSharpURL.split("#")[0] + '#' + page.currentCommentId + '"'
+                                        + 'onmouseover="page.showComment(this, \'' + page.currentCommentId + '\', 23);"'
+                                        + 'onmouseout="page.hideComment(\'' + page.currentCommentId + '\')">' + commentOriginalCommentName + '</a>';
+                            }
+
+
+
+                            commentHTML += '<time>' + result.commentDate
+                                    + '</time></span>';
+                            if (commentable) {
+                                commentHTML += '<a class="fn-right" href="javascript:replyTo(\'' + result.oId + '\');">${replyLabel}</a>';
+                            }
+                            commentHTML += '</div><div class="comment-content">' +
+                                    Util.replaceEmString($("#comment" + state).val())
+                                    + '</div></div></li>';
+                            return commentHTML;
+                        };
                         var replyTo = function (id) {
                             var commentFormHTML = "<table class='form comment-reply' id='replyForm'>";
                             page.addReplyForm(id, commentFormHTML);
