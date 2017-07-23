@@ -52,8 +52,8 @@ var Finding = {
 
         $('.site-wrapper').click(function (event) {
             if ($(event.target).closest('.nav').length === 0
-                && $("body").hasClass('nav-opened')
-                && !$(event.target).hasClass('icon-gotop')) {
+                    && $("body").hasClass('nav-opened')
+                    && !$(event.target).hasClass('icon-gotop')) {
                 $("body").removeClass('nav-opened').addClass('nav-closed');
             }
         });
